@@ -128,13 +128,13 @@ app.service('sharedProperties', function () {
 	var userName = '';
 	var passWord = '';
 	var instName = 'bethanyhigh.pupilpod.in';
-	//var instName = 'hetest.pupilpod.in';
+	// var instName = 'hetest.pupilpod.in';
 	var parOrStu = '';
 	var isLogin = true;
 	var login_entity_guid = '';
 	var app_id = '';
 	var student_guid = '1237119665170ea90d9253';
-	//var student_guid = '21212078785468cfcfaf53e';
+	// var student_guid = '21212078785468cfcfaf53e';
 	var student_name = '';
 	var test_instance_guid = '';
 	var invoices_list=[];
