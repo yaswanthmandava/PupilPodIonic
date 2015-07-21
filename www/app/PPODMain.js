@@ -1,0 +1,229 @@
+var app = angular.module('PPOD',['ionic',"ngCordova"]);
+
+app.constant('url', 'NBA/amfphp-2.1/Amfphp/?contentType=application/json');
+
+// app.run(['$ionicPlatform','$timeout','$state','$window', 
+	// function($ionicPlatform,$timeout,$state,$window) {
+	// FastClick.attach(document.body);
+// }]);
+
+app.factory('myCache', function($cacheFactory) {
+ return $cacheFactory('myData');
+});
+
+app.config(function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+});
+
+app.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
+	$stateProvider
+	.state('eventmenu', {
+		cache: false,
+		url: "/eventmenu",
+		abstract: true,
+		templateUrl: 'app/views/others/sidebar.html'
+    })
+	.state('eventmenu.home', {
+		cache: false,
+		url: "/home",
+		views: {
+			'menuContent' :{
+			  templateUrl: 'app/views/Home.html',
+			  controller: "homeController"
+			}
+		}
+    })
+	.state('eventmenu.login', {
+		cache: false,
+		url: "/login",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/login.html',
+				controller: "loginController"
+			}
+		}
+    })
+	.state('eventmenu.mainLanding', {
+		cache: false,
+		url: "/mainLanding",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/mainLanding.html',
+				controller: "mainController"
+			}
+		}
+    })
+	.state('eventmenu.exam_details', {
+		cache: false,
+		url: "/exam_details",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/exam_details.html',
+				controller: "gettingAllTests"
+			}
+		}
+    })
+	.state('eventmenu.fees', {
+		cache: false,
+		url: "/fees",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/fees.html',
+				controller: "feesController"
+			}
+		}
+    })
+	.state('eventmenu.confirmMakePayment', {
+		url: "/confirmMakePayment",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/confirmMakePayment.html',
+				controller: "confirmMakePayment"
+			}
+		}
+    })
+	.state('eventmenu.paymentCallBack', {
+		cache: false,
+		url: "/paymentCallBack",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/paymentCallBack.html',
+				controller: ""
+			}
+		}
+    })
+	.state('eventmenu.view_test_details', {
+		cache: false,
+		url: "/view_test_details/:test_ins_guid",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/view_test_details.html',
+				controller: "TestDetailsForStudent"
+			}
+		}
+    })
+	.state('eventmenu.change_student', {
+		url: "/change_student",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/change_student.html',
+				controller: "changeStudent"
+			}
+		}
+    })
+	.state('eventmenu.logout', {
+		url: "/logout",
+		views: {
+			'menuContent' :{
+				templateUrl: 'app/views/others/logout.html',
+				controller: "logoutController"
+			}
+		}
+    });
+	$urlRouterProvider.otherwise("/eventmenu/home");
+}]);
+
+app.service('sharedProperties', function () {
+	var reg_key = '';
+	var userName = '';
+	var passWord = '';
+	var instName = 'bethanyhigh.pupilpod.in';
+	//var instName = 'hetest.pupilpod.in';
+	var parOrStu = '';
+	var isLogin = true;
+	var login_entity_guid = '';
+	var app_id = '';
+	var student_guid = '1237119665170ea90d9253';
+	//var student_guid = '21212078785468cfcfaf53e';
+	var student_name = '';
+	var test_instance_guid = '';
+	var invoices_list=[];
+	var SelectedTotalAmount=0;
+	var SelectedMode='';
+	return {
+		getRegKey: function() {
+			return reg_key;
+		},
+		setRegKey: function(regKey) {
+			reg_key = regKey;
+		},
+		getUserName: function() {
+			return userName;
+		},
+		setUserName: function(user) {
+			userName = user;
+		},
+		getPassWord: function() {
+			return passWord;
+		},
+		setPassWord: function(pass) {
+			passWord = pass;
+		},
+		getInstName: function() {
+			return instName;
+		},
+		setInstName: function(inst) {
+			instName = inst;
+		},
+		getParOrStu: function() {
+			return parOrStu;
+		},
+		setParOrStu: function(typeoflogin) {
+			parOrStu = typeoflogin;
+		},
+		getUserGuid: function() {
+			return login_entity_guid;
+		},
+		setUserGuid: function(entity_guid) {
+			login_entity_guid = entity_guid;
+		},
+		getIsLogin: function() {
+			return isLogin;
+		},
+		setIsLogin: function(login) {
+			isLogin = login;
+		},
+		getAppId: function() {
+			return app_id;
+		},
+		setAppId: function(appid) {
+			app_id = appid;
+		},
+		getStudentSelectedGuid: function() {
+			return student_guid;
+		},
+		setStudentSelectedGuid: function(stuGuid) {
+			//student_guid = stuGuid;
+		},
+		getStudentSelectedName: function() {
+			return student_name;
+		},
+		setStudentSelectedName: function(stuName) {
+			student_name = stuName;
+		},
+		getTestInstanceGuid: function(){
+			return test_instance_guid;
+		},
+		setTestInstanceGuid: function(testInsGuid){
+			test_instance_guid = testInsGuid;
+		},		
+		getStudentInvoices: function(){
+			return invoices_list;
+		},
+		setStudentInvoices: function(selectedInvoices){
+			invoices_list = selectedInvoices;
+		},
+		getSelectedTotalAmount:function(){
+			return SelectedTotalAmount;
+		},
+		setSelectedTotalAmount:function(totalAmount){
+			SelectedTotalAmount=totalAmount;
+		},
+		getSelectedMode:function(){
+			return SelectedMode;
+		},
+		setSelectedMode:function(mode){
+			SelectedMode=mode;
+		}
+	};
+});

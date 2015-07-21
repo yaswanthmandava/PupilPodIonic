@@ -1,0 +1,51 @@
+<ion-view view-title="Welcome">
+	<ion-content>
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+		<div class="bar bar-header bar-light" style="margin:0px 10px 0px 13px;width:98%;">
+			  <h1 class="title">MakePayment View</h1>
+		</div>
+		<div class="card">
+
+			<div class="row"  style="height:54px;">
+				<div class="col" > </div>
+				<div class="col" ></div>
+			</div>
+			<div class="row"  style="height:54px;">
+				<div class="col"  style="font-weight:bold;">Amount </div>
+				<div class="col" ng-bind="selectedTotalAmount"></div>
+			</div>
+			<div class="row" style="height:54px;">
+				  <div class="col"  style="font-weight:bold;">Amount in words</div>
+				<div class="col" ng-bind="AmountInwords"></div>
+			</div>
+			<div class="row" style="height:54px;">
+				  <div class="col" style="font-weight:bold;" >Payment Mode</div>
+				<div class="col" ng-bind="selectedPaymentMode"></div>
+			</div>
+			<div class="row"  style="margin-left:40%;">
+				<button type="button" id="backBtn" ng-click="backBtn()" style="margin-right:5px;">Back <i class="ion-social-usd-outline"></i></button>
+				<button type="button" id="MakePymt" ng-click="MakePayment()">Confirm Payment <i class="ion-social-usd-outline"></i></button>
+			</div>
+					<div id="displayWait">
+		</div>
+		
+		<BR />
+		<b>NOTE:</b>
+		<font size="3" color="red">
+		Please DO NOT use back button, DO NOT reload/refresh the page when doing an online payment.
+		</font>		
+		<ul>
+		<!--<li>Please note that online payment uses <b>Net Banking</b> facility and amount will be deducted from your bank account. You <b>cannot</b> use your Credit Cards/Debit Cards to make online payments</li>	-->
+		<li>Online payments are done using {{payment_gateway}}</li>
+		<li>You will be forwarded to {{payment_gateway}} website and then to your bank website from where you can complete the online transaction.</li>
+		<li>Please note that you should have an account in one of the banks as specified in the circular.</li>
+		<li>Also please note that some banks have a limit for online transaction per day. If the total amount is more than the transaction limit specified by your bank, the transaction will fail. To avoid this, please select only few items so that the total amount will be less than the transaction limit.</li>
+		<li><font size="2" color="red"><b>Transaction fees levied on transactions will not be refunded/ reversed </b></font> </li>
+		</ul>				
+		<br/>
+		<font size="2" color="red">
+		<! -- When you click "Make Payment" you also agree to the Terms & Conditions -->
+		</font>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,79 @@
+<ion-view view-title="Welcome">
+	<ion-content>
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+		<div class="item item-divider" ng-init="getPaymentModes()">
+			Confirm MakePayment
+		</div>
+		<div ng-repeat="alert in alerts" ng-show="alert.show"  ng-class="{'alert alert-success': error_type==='success',
+                     'alert alert-danger': error_type ==='error'}">
+			<div class="card row-center">
+				<alert type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+			</div>
+		</div>
+		<div class="card" >
+			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Amount </div>
+				<div class="col" >
+					<div class="row">  
+						<div style="margin-right:2px;">&#x20B9;</div>
+						<div ng-bind="transactionAmtTodisplay"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Discount </div>
+				<div class="col" >
+					<div class="row">  
+						<div style="margin-right:2px;">&#x20B9;</div>
+						<div ng-bind="discountAmount"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Fine </div>
+				<div class="col" >
+					<div class="row">  
+						<div style="margin-right:2px;">&#x20B9;</div>
+						<div ng-bind="totFine"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Total Amount </div>
+				<div class="col">
+					<div class="row">  
+						<div style="margin-right:2px;">&#x20B9;</div>
+						<div  ng-bind="totalAmtPyng"></div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row row-center" style="height:54px;margin-bottom:5px;">
+				  <div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Amount in words</div>
+				<div class="col" ng-bind="AmountInwords"></div>
+			</div>
+			<div class="row row-center" style="height:54px;margin-bottom:5px;" ng-if="noOfPaymentModesIsOne">
+				  <div class="col" style="text-align:right;border-right:solid 2px #EFEFEF" >Payment Mode</div>
+				<div class="col" ng-bind="selectedMode.payment_mode"></div>
+			</div>
+			<div class="row row-center"  style="height:54px;margin-bottom:5px;" ng-if="!noOfPaymentModesIsOne">
+				<div class="col" style="text-align:right;border-right:solid 2px #EFEFEF">
+				  Payment Mode
+				</div>
+				<div class="col">
+					<select ng-model="selectedMode.payment_mode">
+						<option ng-selected="{{payment_mode.custom_key == selectedMode.payment_mode}}" 
+						ng-repeat="payment_mode in paymentModes" 
+						value="{{payment_mode.custom_key}}">{{payment_mode.custom_value}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="row row-center" style="margin-left:39%;" >
+				<button class ="col-10  button button-small button-stable" type="button" id="backBtn" ng-click="backBtn()" style="margin-right:14px;">Back </button>
+				<button  class ="col-10 button button-small button-balanced" type="button" id="confirmMakePymt" ng-click="confirmMakePayment()">Confirm Payment </button>
+			</div>
+			
+		</div>
+	</ion-content>
+</ion-view>
+

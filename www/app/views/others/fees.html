@@ -1,0 +1,93 @@
+<ion-view view-title="Welcome">
+	<ion-content>
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+		<div class="item item-divider" ng-init="getInvoicesForStudent()">
+			Fee
+		</div>
+		<div class="card" >
+			<div class="row">
+				<div class ="col-50" ></div>
+				<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
+			</div>
+		</div>
+		<div ng-repeat="alert in alerts" ng-show="alert.show"  ng-class="{'alert alert-success': error_type==='success',
+                     'alert alert-danger': error_type ==='error'}">
+			<div class="card row-center">
+				<alert type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
+			</div>
+		</div>
+				<!--<div class="row"  ng-if="MakepaymentButtonAvailable">
+				  <div class="col" ng-if="MakepaymentButtonAvailable" ><label class="checkbox" >Select</label></div>
+				  <div class="col">Invoice No</div>
+				  <div class="col">Invoice Title</div>
+				  <div class="col">Amount</div>
+				  <div class="col">Invoice status</div>
+				  <div class="col">Due date</div>
+				</div>--->
+				<!--<div class="row responsive-sm" ng-repeat="invoice in invoices_list" style="height:54px;">
+				  <div class="col" ng-if="MakepaymentButtonAvailable"><label class="checkbox" ng-if="invoice.invoice_availablity" ><ion-checkbox ng-model="invoice.checked"  ></ion-checkbox></label></div>
+				  <div class="col" ng-bind="invoice.invoice_no"></div>
+				  <div class="col" ng-bind="invoice.invoice_title"></div>
+				  <div class="col" ng-bind="invoice.invoice_amount"></div>
+				  <div class="col" ng-switch on="invoice.invoice_status">
+					<label  ng-switch-when="FULLY_PAID"  ng-bind="invoice.status" style="color:red;font-weight:bold;"></label>
+					<label  ng-switch-when="PARTIALY_PAID"  ng-bind="invoice.status" style="color:green;font-weight:bold;"></label>
+					<label  ng-switch-when="NOT_PAID"  ng-bind="invoice.status" style="color:green;font-weight:bold;"></label>
+				  
+				  </div>
+				  <div class="col" ng-bind="invoice.due_date"></div>
+				</div>-->
+				
+				
+				<div class="card" ng-repeat="invoice in invoices_list" >
+					<div class="row row-center">
+						<div>	
+							<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked"></ion-checkbox>
+						</div>	
+					  <div class="col col-80">
+							<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
+							<div class="row text-center">
+								<div ng-bind="invoice.invoice_status" class="col col-50" style="border-right:solid 2px #EFEFEF"></div>
+								<div ng-bind="invoice.display_date"  class="col col-50"></div>
+							</div>
+						</div>
+						<div class="col col-20 text-center">
+							<div>&#x20B9;</div>
+							<div ng-bind="invoice.invoice_amount"></div>
+						</div>	
+					  </div>
+				</div>				
+				
+				<!--<div class="card" ng-repeat="invoice in invoices_list" >
+					<div class="row row-center">
+					  <div class="col col-10">
+						<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked"></ion-checkbox>
+					  <label ng-if="!invoice.invoice_availablity" ></label></div>
+					  <div class="col" style="padding-left: 0px; padding-right: 0px;">
+									<div ng-bind="invoice.invoice_title" class="text-center"></div>
+									<div class="row text-center">
+										<div ng-bind="invoice.invoice_status" class="col col-30"></div>
+										<div ng-bind="invoice.due_date"  class="col col-70"></div>
+									</div>
+						</div>
+						<div class="col col-25 text-center" ng-bind="invoice.invoice_amount"></div>	
+					  </div>
+				</div>-->
+				
+				<!--<div class="header_sub"><h4>Fees Details<h4></div>-->
+				<!--<div class="row" ng-if="MakepaymentButtonAvailable" style="margin-left:49%;width:50%;">
+					<div class="col">
+					  Payment Mode:
+					</div>
+					<div class="col">
+						<select ng-model="selectedMode.payment_mode">
+							<option ng-selected="{{payment_mode.custom_key == selectedMode.payment_mode}}" ng-repeat="payment_mode in paymentModes" value="{{payment_mode.custom_key}}">{{payment_mode.custom_value}}</option>
+						</select>
+					</div>
+					
+				</div>-->
+				<!--<button type="button" id="makePayment" ng-if="MakepaymentButtonAvailable" ng-click="makePayment(1)">Make Payment <i class="ion-social-usd-outline"></i></button>-->
+				
+		
+	</ion-content>
+</ion-view>

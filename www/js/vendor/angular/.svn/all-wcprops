@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular
+END
+angular-ui-router.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular-ui-router.min.js
+END
+angular-animate.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular-animate.js
+END
+angular-animate.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular-animate.min.js
+END
+angular.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular.min.js
+END
+angular-sanitize.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular-sanitize.min.js
+END
+angular-resource.min.js
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/pupilpod/!svn/ver/19150/Trunk/src/PupilApp/PupilPodIonic/www/js/vendor/angular/angular-resource.min.js
+END
