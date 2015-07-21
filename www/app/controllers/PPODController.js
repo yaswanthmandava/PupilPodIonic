@@ -413,7 +413,7 @@ app.controller('feesController',function($scope,PPODService,$http,$window,$docum
 			$scope.alerts.push({msg: "Alert  :"+reason, show: true});
 			return false;*/
 			//navigator.notification.alert('You are the winner!',alertDismissed,'Game Over','Done');
-			navigator.notification.alert('You are the winner!');
+			navigator.notification.alert('Select atleast one Invoice !',alertDismissed,'alert','Done');
 		}
 		function alertDismissed(){
 			return false;
