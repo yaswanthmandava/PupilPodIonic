@@ -337,7 +337,7 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 		 
 		var param = JSON.stringify({
 			"serviceName":"TnetMobileService", 
-			"methodName":"getDiscountInfo",
+			"methodName":"getDiscountAndFineInfo",
 			"parameters":[null,{'invoices_list':$scope.invoices_list}]
         });
 		var tempUrl = "http://"+sharedProperties.getInstName()+"/"+url;
