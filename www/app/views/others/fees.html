@@ -9,11 +9,8 @@
 				<ion-spinner icon="ripple" class="spinner-balanced"></ion-spinner>
 			</div>
 		</div>
-		<div class="card" ng-show="makePaymentshow">
-			<div class="row">
-					<div class ="col-50" ></div>
-					<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
-			</div>
+		<div style="width:100%;height:57px;padding:5px;" ng-show="makePaymentshow">
+			<button class ="button button-positive" style="float:right;" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
 		</div>
 		<!-- <div class="card" ng-repeat="invoice in invoices_list" >
 			<div class="row row-center" style="padding-top:0px;padding-bottom:0px;">
@@ -38,12 +35,18 @@
 				<div ng-bind="invoice.invoice_title" class="text-center" style="float:left;height:52px;padding:17px 0px 0px 10px;"></div>
 			</div>
 			<div class="row row-center" style="padding:0px;">
-				<div style="width:60%;padding-left:10px;">
-					<div ng-bind="invoice.status"></div>
+				<div style="width:60%;padding:5px 0px 5px 10px;height:50px;">
+					<div ng-if="invoice.invoice_availablity" style="color:#C70000;" ng-bind="invoice.status"> </div>
+					<div ng-if="!invoice.invoice_availablity" style="color:#00BE00;" ng-bind="invoice.status"></div>
 					<div> Due on {{invoice.display_date}}</div>
 				</div>
-				<div style="width:40%;background-color:#F2F2F2;color:#C70000;padding-top:13px;text-align:center;font-weight:bold;height:40px;">
-						<div> &#x20B9; &nbsp;&nbsp; <span  ng-bind="invoice.invoice_amount"></span> </div>
+				<div ng-if="invoice.invoice_availablity" 
+				 style="width:40%;background-color:#F2F2F2;color:#C70000;padding-top:18px;text-align:center;font-weight:bold;height:50px;">
+						<div>&#x20B9;&nbsp;<span  ng-bind="invoice.invoice_amount"></span> </div>
+				</div>
+				<div ng-if="!invoice.invoice_availablity" 
+				 style="width:40%;background-color:#F2F2F2;color:#00BE00;padding-top:18px;text-align:center;font-weight:bold;height:50px;">
+						<div>&#x20B9;&nbsp;<span  ng-bind="invoice.invoice_amount"></span> </div>
 				</div>
 			</div>
 		</div>
