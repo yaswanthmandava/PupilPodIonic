@@ -41,14 +41,19 @@
 				
 				<div class="card" ng-repeat="invoice in invoices_list" >
 					<div class="row row-center">
-						<div>	
-							<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked"></ion-checkbox>
+						<div class="col col-10">	
+							<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox>
 						</div>	
-					  <div class="col col-80">
+					  <div class="col col-70">
 							<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
 							<div class="row text-center">
-								<div ng-bind="invoice.invoice_status" class="col col-50" style="border-right:solid 2px #EFEFEF"></div>
-								<div ng-bind="invoice.display_date"  class="col col-50"></div>
+								<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;text-align:right;"></div>
+								<!--<div ng-bind="invoice.display_date"  class="col col-50" style="text-align:left;"></div>-->
+								<div class="col col-40" style="text-align:left;">
+									<div >Due on:</div>
+									<div ng-bind="invoice.display_date" ></div>
+								</div>
+								
 							</div>
 						</div>
 						<div class="col col-20 text-center">

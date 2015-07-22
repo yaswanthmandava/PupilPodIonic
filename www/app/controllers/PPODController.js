@@ -461,7 +461,7 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 		
 		PPODService.getPaymentModes($scope);
 		PPODService.getDiscountAndFineInfo($scope);
-		
+		PPODService.getConfirmMakePaymentNotes($scope);
 		//$scope.AmountInwords=toWords($scope.totalAmtPyng);
 	
 	}

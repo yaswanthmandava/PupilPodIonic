@@ -344,8 +344,7 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 		$http.post(tempUrl, param)
 		.success(function(data, status, headers, config) {
-			console.log("coming from discountAndfineInfo result");
-			console.log(data);
+			$scope.loading = false;
 			$scope.discountAmount=data['discount'];
 			$scope.transactionAmtTodisplay=data['transactionAmtTodisplay'];
 			$scope.totFine=data['totFine'];
@@ -353,6 +352,24 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 			$scope.totalAmtPyng=data['totalAmtPyng'];
 			$scope.AmountInwords=data['Amount_in_words'];
 			
+		})
+		.error(function(data, status, headers, config){
+			console.log("coming to error"+data);
+		});		
+	};
+	this.getConfirmMakePaymentNotes = function($scope){
+		 
+		var param = JSON.stringify({
+			"serviceName":"TnetMobileService", 
+			"methodName":"getConfirmMakePaymentNotes",
+			"parameters":[null]
+        });
+		var tempUrl = "http://"+sharedProperties.getInstName()+"/"+url;
+		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
+		$http.post(tempUrl, param)
+		.success(function(data, status, headers, config) {
+			$scope.loading = false;
+			$scope.noteList=data;			
 		})
 		.error(function(data, status, headers, config){
 			console.log("coming to error"+data);

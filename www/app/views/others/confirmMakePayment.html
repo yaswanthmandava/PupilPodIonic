@@ -1,6 +1,5 @@
 <ion-view view-title="Welcome">
 	<ion-content>
-		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
 		<div class="item item-divider" ng-init="getPaymentModes()">
 			Confirm MakePayment
 		</div>
@@ -11,8 +10,8 @@
 			</div>
 		</div>
 		<div class="card" >
-			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
-				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Amount </div>
+			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
+				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Invoice Amount </div>
 				<div class="col" >
 					<div class="row">  
 						<div style="margin-right:2px;">&#x20B9;</div>
@@ -20,7 +19,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
 				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Discount </div>
 				<div class="col" >
 					<div class="row">  
@@ -29,7 +28,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
 				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Fine </div>
 				<div class="col" >
 					<div class="row">  
@@ -38,7 +37,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row row-center"  style="height:54px;margin-bottom:5px;">
+			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
 				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Total Amount </div>
 				<div class="col">
 					<div class="row">  
@@ -48,15 +47,15 @@
 				</div>
 			</div>
 			
-			<div class="row row-center" style="height:54px;margin-bottom:5px;">
+			<div class="row row-center" style="height:54px;margin-bottom:2px;">
 				  <div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Amount in words</div>
 				<div class="col" ng-bind="AmountInwords"></div>
 			</div>
-			<div class="row row-center" style="height:54px;margin-bottom:5px;" ng-if="noOfPaymentModesIsOne">
+			<div class="row row-center" style="height:54px;margin-bottom:2px;" ng-if="noOfPaymentModesIsOne">
 				  <div class="col" style="text-align:right;border-right:solid 2px #EFEFEF" >Payment Mode</div>
 				<div class="col" ng-bind="selectedMode.payment_mode"></div>
 			</div>
-			<div class="row row-center"  style="height:54px;margin-bottom:5px;" ng-if="!noOfPaymentModesIsOne">
+			<div class="row row-center"  style="height:54px;margin-bottom:2px;" ng-if="!noOfPaymentModesIsOne">
 				<div class="col" style="text-align:right;border-right:solid 2px #EFEFEF">
 				  Payment Mode
 				</div>
@@ -68,11 +67,13 @@
 					</select>
 				</div>
 			</div>
-			<div class="row row-center"  >
+			<div class="row row-center"  style="margin-left:21%;" >
 				<button class ="col-25  button button-small button-stable" type="button" id="backBtn" ng-click="backBtn()" style="margin-right:14px;">Back </button>
 				<button  class ="col-33 button button-small button-balanced" type="button" id="confirmMakePymt" ng-click="confirmMakePayment()">Confirm Payment </button>
 			</div>
-			
+			<div ng-repeat="lines in noteList">
+				<small><div class="text-center" ng-bind="lines.title" style="padding:5px;"></div></small>
+			</div>
 		</div>
 	</ion-content>
 </ion-view>
