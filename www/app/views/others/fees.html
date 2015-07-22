@@ -16,11 +16,10 @@
 			  <div class="col col-90">
 					<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
 					<div class="row text-center" style="border-bottom:solid 2px #EFEFEF;">
-						<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;text-align:right;"></div>
+						<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;"></div>
 						<!--<div ng-bind="invoice.display_date"  class="col col-50" style="text-align:left;"></div>-->
-						<div class="col col-40" style="text-align:left;">
-							<div >Due on:</div>
-							<div ng-bind="invoice.display_date" ></div>
+						<div class="col col-40" style="">
+							Due on <div ng-bind="invoice.display_date" ></div>
 						</div>
 					</div>
 					<div class="row">
