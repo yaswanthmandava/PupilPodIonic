@@ -15,7 +15,7 @@
 					<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
 			</div>
 		</div>
-		<div class="card" ng-repeat="invoice in invoices_list" >
+		<!-- <div class="card" ng-repeat="invoice in invoices_list" >
 			<div class="row row-center" style="padding-top:0px;padding-bottom:0px;">
 				<div class="col col-10">	
 					<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox>
@@ -24,17 +24,28 @@
 					<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
 					<div class="row text-center" style="border-bottom:solid 2px #EFEFEF;">
 						<div ng-bind="invoice.status" class="col col-60" style="padding-top:0px;padding-bottom:0px;"></div>
-						<!--<div ng-bind="invoice.display_date"  class="col col-50" style="text-align:left;"></div>-->
 						<div class="col col-40" ng-bind="invoice.display_date" style="padding-top:0px;padding-bottom:0px;"></div>
 					</div>
 					<div class="row" style="padding-top:10px;">
-						<!--<div class="col col-50" style="text-align:right;">&#x20B9;</div>
-						<div class="col col-50" ng-bind="invoice.invoice_amount" style="text-align:left;" ></div>-->
 						<div class="col" style="text-align:center;font-weight:bold;">&#x20B9;<span  ng-bind="invoice.invoice_amount" style="margin-left:2px;"></span> </div>
 					</div>
 				</div>
 			</div>
-		</div>				
-
+		</div> -->
+		<div class="card" ng-repeat="invoice in invoices_list" style="padding-bottom:0px;" >
+			<div style="height:53px;border-bottom:solid 1px #FFE45B;">
+				<div style="float:left;"> <ion-checkbox  ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox></div>
+				<div ng-bind="invoice.invoice_title" class="text-center" style="float:left;height:52px;padding:17px 0px 0px 10px;"></div>
+			</div>
+			<div class="row row-center" style="padding:0px;">
+				<div style="width:60%;padding-left:10px;">
+					<div ng-bind="invoice.status"></div>
+					<div> Due on {{invoice.display_date}}</div>
+				</div>
+				<div style="width:40%;background-color:#F2F2F2;color:#C70000;padding-top:13px;text-align:center;font-weight:bold;height:40px;">
+						<div> &#x20B9; &nbsp;&nbsp; <span  ng-bind="invoice.invoice_amount"></span> </div>
+				</div>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>
