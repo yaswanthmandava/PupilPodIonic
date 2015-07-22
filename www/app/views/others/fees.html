@@ -4,9 +4,16 @@
 		<div class="item item-divider" ng-init="getInvoicesForStudent()">
 			Fee
 		</div>
-		<div class="row">
-				<div class ="col-50" ></div>
-				<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
+		<div ng-show="loading">
+			<div style="text-align:center;">
+				<ion-spinner icon="ripple" class="spinner-balanced"></ion-spinner>
+			</div>
+		</div>
+		<div class="card" ng-show="makePaymentshow">
+			<div class="row">
+					<div class ="col-50" ></div>
+					<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
+			</div>
 		</div>
 		<div class="card" ng-repeat="invoice in invoices_list" >
 			<div class="row row-center" style="padding-top:0px;padding-bottom:0px;">
@@ -16,7 +23,7 @@
 			  <div class="col col-90">
 					<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
 					<div class="row text-center" style="border-bottom:solid 2px #EFEFEF;">
-						<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;padding-top:0px;padding-bottom:0px;"></div>
+						<div ng-bind="invoice.status" class="col col-60" style="padding-top:0px;padding-bottom:0px;"></div>
 						<!--<div ng-bind="invoice.display_date"  class="col col-50" style="text-align:left;"></div>-->
 						<div class="col col-40" ng-bind="invoice.display_date" style="padding-top:0px;padding-bottom:0px;"></div>
 					</div>

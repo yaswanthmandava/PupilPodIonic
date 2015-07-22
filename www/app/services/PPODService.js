@@ -279,13 +279,13 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 						fullyPaidInvoicesCount++;
 				}
 				if(fullyPaidInvoicesCount==$scope.invoices_list.length){
-					$scope.MakepaymentButtonAvailable=false;
+					$scope.makePaymentshow=false;
 				}
 				else if($scope.invoices_list.length==0){
-					$scope.MakepaymentButtonAvailable=false;
+					$scope.makePaymentshow=false;
 				}
 				else{
-					$scope.MakepaymentButtonAvailable=true;
+					$scope.makePaymentshow=true;
 				}
 			}
 			else{

@@ -379,21 +379,23 @@ app.controller('TestDetailsForStudent',function($scope,PPODService,$http,$window
 });
 
 app.controller('feesController',function($scope,PPODService,$http,$window,$document,sharedProperties,$state,$ionicSideMenuDelegate,$timeout){
-	
 	$scope.$on('$ionicView.enter', function(){
 		$scope.fnInit();
 	});
 	var ref = "";
 	$scope.alerts = []; 
 	$scope.fnInit = function(){
-		$scope.$emit('modelOffEvent', true);	
-    }
+		$scope.$emit('modelOffEvent', true);
+	}
 	
-	$scope.getInvoicesForStudent = function (){		
+	$scope.getInvoicesForStudent = function (){
+		$scope.makePaymentshow=false;
+		$scope.loading = true;
 		PPODService.getFeeInvoicesForStudent($scope);
 	}	
 	
 	$scope.makePayment = function(){
+		$scope.loading = true;
 		//console.log($scope);
 		//console.log("modes--->"+$scope.selectedMode.payment_mode);
 		var checkedInvoicesCount=0;
@@ -414,6 +416,7 @@ app.controller('feesController',function($scope,PPODService,$http,$window,$docum
 			return false;*/
 			//navigator.notification.alert('You are the winner!',alertDismissed,'Game Over','Done');
 			navigator.notification.alert('Select atleast one Invoice !');
+			$scope.loading = false;
 			return false;
 		}
 		//console.log(selectedInvoices);
@@ -456,7 +459,7 @@ app.controller('feesController',function($scope,PPODService,$http,$window,$docum
 });
 app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$document,sharedProperties,$state,$ionicSideMenuDelegate,$timeout){
 	$scope.getPaymentModes=function(){
-		$scope.alerts = []; 
+		$scope.loading = true;
 		$scope.invoices_list=sharedProperties.getStudentInvoices();
 		
 		PPODService.getPaymentModes($scope);
@@ -471,13 +474,12 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 		$state.go('eventmenu.fees');
 	}
 	$scope.confirmMakePayment=function(){
+		$scope.loading = true;
 		var selectedPaymentMode=$scope.selectedMode.payment_mode;
 		
 		if(selectedPaymentMode=='-1'){
-			$scope.alerts = []; 
-			var reason='Select Payment mode.';
-			$scope.error_type = "error";
-			$scope.alerts.push({msg: "Alert  :"+reason, show: true});
+			navigator.notification.alert('Select Payment Mode !');
+			$scope.loading = false;
 			return false;
 		}
 		console.log("selectedMode====>"+$scope.selectedMode.payment_mode);
