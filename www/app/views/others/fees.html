@@ -9,7 +9,7 @@
 				<ion-spinner icon="ripple" class="spinner-balanced"></ion-spinner>
 			</div>
 		</div>
-		<div style="width:100%;height:57px;padding:5px;" ng-show="makePaymentshow">
+		<div style="width:100%;height:57px;padding:5px 15px 5px 5px;" ng-show="makePaymentshow">
 			<button class ="button button-positive" style="float:right;" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
 		</div>
 		<!-- <div class="card" ng-repeat="invoice in invoices_list" >
@@ -29,7 +29,7 @@
 				</div>
 			</div>
 		</div> -->
-		<div class="card" ng-repeat="invoice in invoices_list" style="padding-bottom:0px;" >
+		<div class="card" ng-repeat="invoice in invoices_list" style="padding-bottom:0px;margin-top:0px;" >
 			<div style="height:53px;border-bottom:solid 1px #FFE45B;">
 				<div style="float:left;"> <ion-checkbox  ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox></div>
 				<div ng-bind="invoice.invoice_title" class="text-center" style="float:left;height:52px;padding:17px 0px 0px 10px;"></div>

@@ -10,55 +10,43 @@
 		</div>
 		<div class="card" >
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Invoice Amount </div>
-				<div class="col" >
-					<div class="row">  
-						<div style="margin-right:2px;">&#x20B9;</div>
-						<div ng-bind="transactionAmtTodisplay"></div>
-					</div>
+				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Invoice Amount </div>
+				<div class="col col-67" style="display:inline;">
+					<span>&#x20B9;&nbsp;</span><span  ng-bind="transactionAmtTodisplay"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Discount </div>
-				<div class="col" >
-					<div class="row">  
-						<div style="margin-right:2px;">&#x20B9;</div>
-						<div ng-bind="discountAmount"></div>
-					</div>
+				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Discount </div>
+				<div class="col col-67"  style="display:inline;" >
+					<span>&#x20B9;&nbsp;</span><span  ng-bind="discountAmount"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Fine </div>
-				<div class="col" >
-					<div class="row">  
-						<div style="margin-right:2px;">&#x20B9;</div>
-						<div ng-bind="totFine"></div>
-					</div>
+				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Fine </div>
+				<div class="col col-67" style="display:inline;" >
+					<span>&#x20B9;&nbsp;</span><span ng-bind="totFine"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Total Amount </div>
-				<div class="col">
-					<div class="row">  
-						<div style="margin-right:2px;">&#x20B9;</div>
-						<div  ng-bind="totalAmtPyng"></div>
-					</div>
+				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Total Amount </div>
+				<div class="col col-67" style="display:inline;">
+					<span>&#x20B9;&nbsp;</span><span  ng-bind="totalAmtPyng"></span>
 				</div>
 			</div>
 			
-			<div class="row row-center" style="height:54px;margin-bottom:2px;">
-				  <div class="col"  style="text-align:right;border-right:solid 2px #EFEFEF">Amount in words</div>
-				<div class="col" ng-bind="AmountInwords"></div>
-			</div>
+			<!--<div class="row row-center" style="height:54px;margin-bottom:2px;">
+				  <div class="col col-33"  style="border-right:solid 2px #EFEFEF">Amount in words</div>
+				<div class="col col-67" ng-bind="AmountInwords"></div>
+			</div>-->
 			<div class="row row-center" style="height:54px;margin-bottom:2px;" ng-if="noOfPaymentModesIsOne">
-				  <div class="col" style="text-align:right;border-right:solid 2px #EFEFEF" >Payment Mode</div>
-				<div class="col" ng-bind="selectedMode.payment_mode"></div>
+				  <div class="col col-33" style="border-right:solid 2px #EFEFEF" >Payment Mode</div>
+				<div class="col col-67" ng-bind="selectedMode.payment_mode"></div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;" ng-if="!noOfPaymentModesIsOne">
-				<div class="col" style="text-align:right;border-right:solid 2px #EFEFEF">
+				<div class="col col-33" style="border-right:solid 2px #EFEFEF">
 				  Payment Mode
 				</div>
-				<div class="col">
+				<div class="col col-67">
 					<select ng-model="selectedMode.payment_mode">
 						<option ng-selected="{{payment_mode.custom_key == selectedMode.payment_mode}}" 
 						ng-repeat="payment_mode in paymentModes" 
@@ -66,12 +54,12 @@
 					</select>
 				</div>
 			</div>
-			<div class="row row-center"  style="margin-left:21%;" >
-				<button class ="col-25  button button-small button-stable" type="button" id="backBtn" ng-click="backBtn()" style="margin-right:14px;">Back </button>
-				<button  class ="col-33 button button-small button-balanced" type="button" id="confirmMakePymt" ng-click="confirmMakePayment()">Confirm Payment </button>
+			<div class="row" style="padding-left:10%;">
+				<button class ="button button-stable" type="button" id="backBtn" ng-click="backBtn()" style="margin-right:14px;">Back </button>
+				<button  class ="button button-positive" type="button" id="confirmMakePymt" ng-click="confirmMakePayment()">Confirm Payment </button>
 			</div>
-			<div ng-repeat="lines in noteList">
-				<small><div class="text-center" ng-bind="lines.title" style="padding:5px;"></div></small>
+			<div ng-repeat="lines in noteList" style="padding:5px;" class="text-center" >
+				<small ng-bind="lines.title" ></small>
 			</div>
 		</div>
 	</ion-content>
