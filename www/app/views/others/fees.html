@@ -9,20 +9,21 @@
 				<button class ="col-50 button button-small button-assertive" type="button" id="makePayment" ng-click="makePayment(1)">Make Payment </button>
 		</div>
 		<div class="card" ng-repeat="invoice in invoices_list" >
-			<div class="row row-center">
+			<div class="row row-center" style="padding-top:0px;padding-bottom:0px;">
 				<div class="col col-10">	
 					<ion-checkbox ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox>
 				</div>	
 			  <div class="col col-90">
 					<div ng-bind="invoice.invoice_title" class="text-center" style="border-bottom:solid 2px #EFEFEF;padding-bottom:5px;"></div>
 					<div class="row text-center" style="border-bottom:solid 2px #EFEFEF;">
-						<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;"></div>
+						<div ng-bind="invoice.status" class="col col-60" style="border-right:solid 2px #EFEFEF;padding-top:0px;padding-bottom:0px;"></div>
 						<!--<div ng-bind="invoice.display_date"  class="col col-50" style="text-align:left;"></div>-->
-						<div class="col col-40" ng-bind="invoice.display_date"></div>
+						<div class="col col-40" ng-bind="invoice.display_date" style="padding-top:0px;padding-bottom:0px;"></div>
 					</div>
-					<div class="row">
-						<div class="col col-50" style="text-align:right;">&#x20B9;</div>
-						<div class="col col-50" ng-bind="invoice.invoice_amount" style="text-align:left;" ></div>
+					<div class="row" style="padding-top:10px;">
+						<!--<div class="col col-50" style="text-align:right;">&#x20B9;</div>
+						<div class="col col-50" ng-bind="invoice.invoice_amount" style="text-align:left;" ></div>-->
+						<div class="col" style="text-align:center;font-weight:bold;">&#x20B9;<span  ng-bind="invoice.invoice_amount" style="margin-left:2px;"></span> </div>
 					</div>
 				</div>
 			</div>
