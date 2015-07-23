@@ -352,6 +352,13 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 			$scope.totalAmtPyng=data['totalAmtPyng'];
 			$scope.AmountInwords=data['Amount_in_words'];
 			
+			$scope.disp_discountAmount=data['disp_discount'];
+			$scope.disp_transactionAmtTodisplay=data['disp_transactionAmtTodisplay'];
+			$scope.disp_totFine=data['disp_totFine'];
+			$scope.disp_transactionAmt=data['disp_transactionAmt'];
+			$scope.disp_totalAmtPyng=data['disp_totalAmtPyng'];
+			$scope.AmountInwords=data['Amount_in_words'];
+			
 		})
 		.error(function(data, status, headers, config){
 			console.log("coming to error"+data);
