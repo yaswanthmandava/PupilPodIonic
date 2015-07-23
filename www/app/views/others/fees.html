@@ -32,7 +32,7 @@
 		<div class="card" ng-repeat="invoice in invoices_list" style="padding-bottom:0px;margin-top:0px;" >
 			<div style="height:53px;border-bottom:solid 1px #FFE45B;">
 				<div style="float:left;"> <ion-checkbox  ng-if="invoice.invoice_availablity" ng-model="invoice.checked" style="padding-left:10px;padding-right:10px;margin-left: 0px;margin:0px;left:0px;width:40px;height:52px;"></ion-checkbox></div>
-				<div ng-bind="invoice.invoice_title" class="text-center" style="float:left;height:52px;padding:17px 0px 0px 10px;"></div>
+				<div ng-bind="invoice.invoice_title"  style="height:52px;padding:17px 0px 0px 10px;width:100%;"></div>
 			</div>
 			<div class="row row-center" style="padding:0px;">
 				<div style="width:60%;padding:5px 0px 5px 10px;height:50px;">
