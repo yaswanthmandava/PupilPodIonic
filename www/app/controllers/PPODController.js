@@ -527,17 +527,14 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 				eventUrl=eventUrl.split("?");
 				var transactionStatus=eventUrl[eventUrl.length-1];
 				if(transactionStatus=='fail'){
-					navigator.notification.alert("coming to failure page");				
+					navigator.notification.alert("Your payment is not successful. Please try again later.");				
 				}
 				else if(transactionStatus=='success'){
-					navigator.notification.alert("coming to success page");		
+					navigator.notification.alert("Your payment is successful.");		
 				}
 				$state.go('eventmenu.fees'); 
 				ref.close();
 				
-			}
-			else if(event.url.match("/close")){
-				navigator.notification.alert("coming to success transaction");
 			}
 		});
         ref.addEventListener('loaderror', function(event) {
