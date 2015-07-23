@@ -10,26 +10,26 @@
 		</div>
 		<div class="card" >
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Invoice Amount </div>
-				<div class="col col-67" style="display:inline;">
+				<div class="col col-50"  style="border-right:solid 2px #EFEFEF">Invoice Amount </div>
+				<div class="col col-50" style="display:inline;text-align:right;">
 					<span>&#x20B9;&nbsp;</span><span  ng-bind="disp_transactionAmtTodisplay"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Discount </div>
-				<div class="col col-67"  style="display:inline;" >
+				<div class="col col-50"  style="border-right:solid 2px #EFEFEF">Discount </div>
+				<div class="col col-50"  style="display:inline;text-align:right;" >
 					<span>&#x20B9;&nbsp;</span><span  ng-bind="disp_discountAmount"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Fine </div>
-				<div class="col col-67" style="display:inline;" >
+				<div class="col col-50"  style="border-right:solid 2px #EFEFEF">Fine </div>
+				<div class="col col-50" style="display:inline;text-align:right;" >
 					<span>&#x20B9;&nbsp;</span><span ng-bind="disp_totFine"></span>
 				</div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;">
-				<div class="col col-33"  style="border-right:solid 2px #EFEFEF">Total Amount </div>
-				<div class="col col-67" style="display:inline;">
+				<div class="col col-50"  style="border-right:solid 2px #EFEFEF">Total Amount </div>
+				<div class="col col-50" style="display:inline;text-align:right;">
 					<span>&#x20B9;&nbsp;</span><span  ng-bind="disp_totalAmtPyng"></span>
 				</div>
 			</div>
@@ -39,14 +39,14 @@
 				<div class="col col-67" ng-bind="AmountInwords"></div>
 			</div>-->
 			<div class="row row-center" style="height:54px;margin-bottom:2px;" ng-if="noOfPaymentModesIsOne">
-				  <div class="col col-33" style="border-right:solid 2px #EFEFEF" >Payment Mode</div>
-				<div class="col col-67" ng-bind="selectedMode.payment_mode"></div>
+				  <div class="col col-50" style="border-right:solid 2px #EFEFEF;" >Payment Mode</div>
+				<div class="col col-50" ng-bind="selectedMode.payment_mode" style="text-align:right;"></div>
 			</div>
 			<div class="row row-center"  style="height:54px;margin-bottom:2px;" ng-if="!noOfPaymentModesIsOne">
-				<div class="col col-33" style="border-right:solid 2px #EFEFEF">
+				<div class="col col-50" style="border-right:solid 2px #EFEFEF;">
 				  Payment Mode
 				</div>
-				<div class="col col-67">
+				<div class="col col-50" style="text-align:right;">
 					<select ng-model="selectedMode.payment_mode">
 						<option ng-selected="{{payment_mode.custom_key == selectedMode.payment_mode}}" 
 						ng-repeat="payment_mode in paymentModes" 
