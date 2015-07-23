@@ -369,7 +369,7 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 		var param = JSON.stringify({
 			"serviceName":"TnetMobileService", 
 			"methodName":"getConfirmMakePaymentNotes",
-			"parameters":[null]
+			"parameters":[null,{'invoices_list':$scope.invoices_list}]
         });
 		var tempUrl = "http://"+sharedProperties.getInstName()+"/"+url;
 		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
