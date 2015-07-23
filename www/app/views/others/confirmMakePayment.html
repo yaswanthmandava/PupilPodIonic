@@ -58,7 +58,10 @@
 				<button class ="button button-stable" type="button" id="backBtn" ng-click="backBtn()" style="margin-right:14px;">Back </button>
 				<button  class ="button button-positive" type="button" id="confirmMakePymt" ng-click="confirmMakePayment()">Confirm Payment </button>
 			</div>
-			<div ng-repeat="lines in noteList" style="padding:5px;" class="text-center" >
+			
+		</div>
+		<div class="card" style="background-color:#f5f5f5;">
+			<div ng-repeat="lines in noteList" style="padding:5px;text-align:left;"  >
 				<small ng-bind="lines.title" ></small>
 			</div>
 		</div>
