@@ -487,7 +487,7 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 		var invoices=JSON.stringify($scope.invoices_list);
 		var totalAmount=$scope.totalAmtPyng;
 		var fineAmount=$scope.totFine;
-		var params="?studentGuid="+studentGuid+"&invoices="+invoices+"&totalAmount="+totalAmount+"&payment_mode="+selectedPaymentMode+"fine="+fineAmount;
+		var params="?studentGuid="+studentGuid+"&invoices="+invoices+"&totalAmount="+totalAmount+"&payment_mode="+selectedPaymentMode+"&fine="+fineAmount;
 		
 		// var mapForm = document.createElement("form");
 		// mapForm.target = '_blank';
