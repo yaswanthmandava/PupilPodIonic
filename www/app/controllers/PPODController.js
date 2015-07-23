@@ -522,13 +522,15 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 		//mapForm.selectedTotalAmount=$scope.selectedTotalAmount;
         ref.addEventListener('loadstart', function(event) {  });
         ref.addEventListener('loadstop', function(event) {
-			if (event.url.match("/close?fail")) {
-				navigator.notification.alert("coming to fail transaction");
+			if (event.url.match("/close")) {
+				var eventUrl=event.url;
+				eventUrl=eventUrl.split("?");
+				navigator.notification.alert(eventUrl);
 				$state.go('eventmenu.fees'); 
 				ref.close();
 				
 			}
-			else if(event.url.match("/close?success")){
+			else if(event.url.match("/close")){
 				navigator.notification.alert("coming to success transaction");
 			}
 		});
