@@ -525,7 +525,13 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 			if (event.url.match("/close")) {
 				var eventUrl=event.url;
 				eventUrl=eventUrl.split("?");
-				navigator.notification.alert(eventUrl);
+				var transactionStatus=eventUrl[eventUrl.length-1];
+				if(transactionStatus=='fail'){
+					navigator.notification.alert("coming to failure page");				
+				}
+				else if(transactionStatus=='success'){
+					navigator.notification.alert("coming to success page");		
+				}
 				$state.go('eventmenu.fees'); 
 				ref.close();
 				
