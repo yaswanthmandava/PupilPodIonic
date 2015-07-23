@@ -521,7 +521,8 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 		
 		//mapForm.selectedTotalAmount=$scope.selectedTotalAmount;
         ref.addEventListener('loadstart', function(event) {  });
-        ref.addEventListener('loadstop', function(event) {  
+        ref.addEventListener('loadstop', function(event) {
+			navigator.notification.alert('loadstop'+event);
 			if (event.url.match("/close")) {
 				$state.go('eventmenu.fees'); 
 				ref.close();
@@ -529,6 +530,7 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 			}
 		});
         ref.addEventListener('loaderror', function(event) {
+			navigator.notification.alert('loaderror'+event);
 			if (event.url.match("/close")) {
 				$state.go('eventmenu.fees'); 
 				ref.close();
