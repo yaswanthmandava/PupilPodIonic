@@ -534,7 +534,6 @@ app.controller('confirmMakePayment',function($scope,PPODService,$http,$window,$d
 				}
 				$state.go('eventmenu.fees'); 
 				ref.close();
-				
 			}
 		});
         ref.addEventListener('loaderror', function(event) {

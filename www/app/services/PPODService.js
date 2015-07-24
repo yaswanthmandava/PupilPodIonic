@@ -345,6 +345,12 @@ app.service('PPODService',function($http,url,$window,$timeout,sharedProperties,$
 		$http.post(tempUrl, param)
 		.success(function(data, status, headers, config) {
 			$scope.loading = false;
+			if(data['discount']!=0&& data['discount']!=null && data['discount']!=''){
+				$scope.discountlabel=true;
+			}
+			else{
+				$scope.discountlabel=false;
+			}
 			$scope.discountAmount=data['discount'];
 			$scope.transactionAmtTodisplay=data['transactionAmtTodisplay'];
 			$scope.totFine=data['totFine'];
